@@ -1,0 +1,27 @@
+map ctrl+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c "/home/linuxbrew/.linuxbrew/bin/fzf --no-sort --no-mouse --exact -i --tac | kitty +kitten clipboard"
+map ctrl+shift+f launch --location=hsplit --allow-remote-control kitty +kitten search.py @active-kitty-window-id
+
+cursor_shape block
+
+font_size 16
+
+background_opacity 0.85
+
+enabled_layouts tall,*
+
+window_margin_width 3
+window_border_width 2
+hide_window_decorations yes
+
+tab_bar_style powerline
+tab_powerline_style slanted
+tab_activity_symbol *
+
+cursor_trail 50
+cursor_trail_decay 0.1 0.4
+
+background_image ~/Pictures/dark.jpg
+background_image_layout cscaled
+background_tint 0.90
+
+font_family JetBrainsMono Nerd Font Mono
