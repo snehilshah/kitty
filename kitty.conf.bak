@@ -1,27 +1,83 @@
+# custom keymap for find
 map ctrl+f launch --type=overlay --stdin-source=@screen_scrollback /bin/sh -c "/home/linuxbrew/.linuxbrew/bin/fzf --no-sort --no-mouse --exact -i --tac | kitty +kitten clipboard"
 map ctrl+shift+f launch --location=hsplit --allow-remote-control kitty +kitten search.py @active-kitty-window-id
 
 cursor_shape block
+confirm_os_window_close 0
+shell_integration enabled
 
-font_size 16
+# Font
+font_size 14
+disable_ligatures never
+bold_italic_font auto
 
-background_opacity 0.85
+# Line height
+adjust_line_height  4
+adjust_column_width 0
 
-enabled_layouts tall,*
-
-window_margin_width 3
-window_border_width 2
-hide_window_decorations yes
-
-tab_bar_style powerline
-tab_powerline_style slanted
-tab_activity_symbol *
-
+# Cursor
+cursor_shape block
+cursor_underline_thickness 2.0
 cursor_trail 50
 cursor_trail_decay 0.1 0.4
+cursor_blink_interval 0
 
-background_image ~/Pictures/dark.jpg
+# Pointer
+default_pointer_shape arrow
+pointer_shape_when_dragging beam
+
+# system
+open_url_with default
+detect_urls yes
+copy_on_select yes
+
+# Remove trailng spaces at the end of lines
+strip_trailing_spaces smart
+focus_follows_mouse no
+
+enabled_layouts vertical,*
+
+tab_bar_edge top
+tab_bar_align center
+tab_bar_style fade
+tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab} {index} {title.split('/')[-1]}"
+tab_activity_symbol ⚡
+
+# tab_powerline_style fade
+# tab_separator " • "
+
+window_margin_width 0
+window_margin_height 0
+window_border_width 1pt
+hide_window_decorations yes
+window_padding_width 0
+window_padding_height 0
+tab_bar_margin_width 0
+single_window_margin_width 0
+single_window_padding_width 0
+tab_bar_margin_height 0.0 0.0
+tab_bar_margin_width 0.0
+placement_strategy top
+
+background_opacity 0.95
+# background_blur 32 not supported in wayland
+# background_image ~/.config/kitty/math.png
 background_image_layout cscaled
-background_tint 0.90
+background_tint 0.75
+background_tint_gaps 10
 
-font_family JetBrainsMono Nerd Font Mono
+font_family Maple Mono NF
+bold_font Maple Mono NF Bold
+italic_font Maple Mono NF Regular Italic
+bold_italic_font Maple Mono NF Bold Italic
+
+enable_audio_bell yes
+# visual_bell_duration 2.0 ease-in linear
+bell_on_tab "🔔 "
+
+# BEGIN_KITTY_THEME
+# Catppuccin-Frappe
+include custom-theme.conf
+# END_KITTY_THEME
+
+map F1 new_window_with_cwd
